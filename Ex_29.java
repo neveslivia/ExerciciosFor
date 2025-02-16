@@ -8,14 +8,13 @@ public class Ex_29 {
         int n = vetor.length;
 
         for (int i = 0; i < n - 1; i++) {
-            int minIdx = i;
             for (int j = i + 1; j < n; j++) {
-                if (vetor[j] < vetor[minIdx])
-                    minIdx = j;
+                if (vetor[j] < vetor[i]) { // Compara e já troca sem variável extra
+                    int temp = vetor[i];
+                    vetor[i] = vetor[j];
+                    vetor[j] = temp;
+                }
             }
-            int temp = vetor[minIdx];
-            vetor[minIdx] = vetor[i];
-            vetor[i] = temp;
         }
 
         System.out.println("Vetor ordenado: " + Arrays.toString(vetor));
